@@ -315,15 +315,20 @@
       #newhero-feature .newhero-stage.is-tech-active .newhero-tech-overlay { opacity:1; }
       #newhero-feature .newhero-stage.is-tech-active .newhero-eye-laser { opacity:1; width:17%; animation:hero-laser-scan .7s ease-out both; }
       #newhero-feature .newhero-stage.is-art-active .newhero-art-overlay,
-      #newhero-feature .newhero-stage.is-art-active .newhero-paint-energy { opacity:1; animation:hero-colour-dance 3.2s ease-in-out 1 normal forwards; }
-      #newhero-feature .newhero-stage.is-art-active .newhero-paint-energy { transform:scale(1.045); }
+      #newhero-feature .newhero-stage.is-art-active .newhero-paint-energy {
+        animation:hero-colour-dance 3.2s ease-in-out 1 normal both;
+      }
+      #newhero-feature .newhero-stage.is-art-active .newhero-paint-energy { transform:scale(1); }
       #newhero-feature .newhero-stage.is-tech-active .newhero-half.newhero-robot img { filter:saturate(1.15) contrast(1.06); }
       #newhero-feature .newhero-stage.is-art-active .newhero-half.newhero-paint img { filter:saturate(1.85) contrast(1.05); transition:filter .35s ease; }
       @keyframes hero-laser-scan { 0%{width:0;opacity:.2} 30%{opacity:1} 100%{width:17%;opacity:1} }
+      /* One complete colour sweep: fade in, move once, then fade out. */
       @keyframes hero-colour-dance {
-        0% { filter:hue-rotate(0deg) saturate(1.8) contrast(1.05); transform:scale(.99); background-position:0% 50%; }
-        50% { filter:hue-rotate(24deg) saturate(2.15) contrast(1.12); transform:scale(1.035); background-position:50% 30%; }
-        100% { filter:hue-rotate(-18deg) saturate(2.3) contrast(1.1); transform:scale(1.055); background-position:100% 70%; }
+        0% { opacity:0; filter:hue-rotate(0deg) saturate(1.8) contrast(1.05); transform:scale(.99); background-position:0% 50%; }
+        16% { opacity:1; }
+        52% { opacity:1; filter:hue-rotate(24deg) saturate(2.15) contrast(1.12); transform:scale(1.035); background-position:50% 30%; }
+        82% { opacity:.75; }
+        100% { opacity:0; filter:hue-rotate(-18deg) saturate(2.3) contrast(1.1); transform:scale(1.055); background-position:100% 70%; }
       }
       @media(max-width:760px) {
         #newhero-feature .newhero-eye-laser { left:44.4%; top:39.2%; }
