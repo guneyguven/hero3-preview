@@ -285,7 +285,7 @@
         transition:opacity .22s ease;
       }
       #newhero-feature .newhero-eye-laser {
-        position:absolute; z-index:5; left:48.5%; top:39%; width:0; height:2px;
+        position:absolute; z-index:5; left:44.4%; top:39.2%; width:0; height:2px;
         opacity:0; pointer-events:none; transform:translateY(-50%);
         background:linear-gradient(90deg,#e9fdff 0%,#51eaff 30%,#00aaff 72%,transparent 100%);
         box-shadow:0 0 6px #00baff,0 0 16px rgba(0,174,255,.9);
@@ -315,7 +315,7 @@
       #newhero-feature .newhero-stage.is-tech-active .newhero-tech-overlay { opacity:1; }
       #newhero-feature .newhero-stage.is-tech-active .newhero-eye-laser { opacity:1; width:17%; animation:hero-laser-scan .7s ease-out both; }
       #newhero-feature .newhero-stage.is-art-active .newhero-art-overlay,
-      #newhero-feature .newhero-stage.is-art-active .newhero-paint-energy { opacity:1; animation:hero-colour-dance 3.2s ease-in-out infinite alternate; }
+      #newhero-feature .newhero-stage.is-art-active .newhero-paint-energy { opacity:1; animation:hero-colour-dance 3.2s ease-in-out 1 normal forwards; }
       #newhero-feature .newhero-stage.is-art-active .newhero-paint-energy { transform:scale(1.045); }
       #newhero-feature .newhero-stage.is-tech-active .newhero-half.newhero-robot img { filter:saturate(1.15) contrast(1.06); }
       #newhero-feature .newhero-stage.is-art-active .newhero-half.newhero-paint img { filter:saturate(1.85) contrast(1.05); transition:filter .35s ease; }
@@ -326,8 +326,8 @@
         100% { filter:hue-rotate(-18deg) saturate(2.3) contrast(1.1); transform:scale(1.055); background-position:100% 70%; }
       }
       @media(max-width:760px) {
-        #newhero-feature .newhero-eye-laser { left:48.5%; top:39%; }
-        #newhero-feature .newhero-stage.is-tech-active .newhero-eye-laser { width:13%; }
+        #newhero-feature .newhero-eye-laser { left:44.4%; top:39.2%; }
+        #newhero-feature .newhero-stage.is-tech-active .newhero-eye-laser { width:18%; }
       }
       @media(prefers-color-scheme:dark) {
         html:not([data-theme="light"]) #newhero-feature .newhero-tech-overlay {
