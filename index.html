@@ -332,6 +332,15 @@
       }
     </style>
 
+    <style id="newhero-preview-background-fix">
+      /* The artwork is the hero background; do not paint a separate grid over it. */
+      #newhero-feature .newhero-tech-overlay,
+      #newhero-feature .newhero-tech-overlay::after,
+      #newhero-feature .newhero-art-overlay,
+      #newhero-feature .newhero-paint-energy { display: none !important; }
+      #newhero-feature .newhero-stage { background: transparent !important; }
+    </style>
+
   </head>
   <body class="home-page">
     <header class="nav">
@@ -400,8 +409,8 @@
     <main>
       <section class="hero newhero" id="newhero-feature" data-hero-version="newhero_2">
         <div class="newhero-stage" aria-label="Engineer and artist split portrait with hover-reactive effects">
-          <div class="newhero-half newhero-robot"><img src="https://raw.githubusercontent.com/guneyguven/guneyguven.github.io/newhero_2/https://raw.githubusercontent.com/guneyguven/guneyguven.github.io/newhero_2/images/88B37D6F-2840-4CFC-A7B8-4FC610986B42.png" alt="Cybernetic engineering portrait half" fetchpriority="high"></div>
-          <div class="newhero-half newhero-paint"><img src="https://raw.githubusercontent.com/guneyguven/guneyguven.github.io/newhero_2/https://raw.githubusercontent.com/guneyguven/guneyguven.github.io/newhero_2/images/88B37D6F-2840-4CFC-A7B8-4FC610986B42.png" alt="Oil-painted artistic portrait half" fetchpriority="high"></div>
+          <div class="newhero-half newhero-robot"><img src="https://raw.githubusercontent.com/guneyguven/guneyguven.github.io/newhero_2/images/88B37D6F-2840-4CFC-A7B8-4FC610986B42.png" alt="Cybernetic engineering portrait half" fetchpriority="high"></div>
+          <div class="newhero-half newhero-paint"><img src="https://raw.githubusercontent.com/guneyguven/guneyguven.github.io/newhero_2/images/88B37D6F-2840-4CFC-A7B8-4FC610986B42.png" alt="Oil-painted artistic portrait half" fetchpriority="high"></div>
           <div class="newhero-glow" aria-hidden="true"></div>
           <div class="newhero-tech-overlay" aria-hidden="true"></div>
           <div class="newhero-art-overlay" aria-hidden="true"></div>
