@@ -521,24 +521,46 @@
 },true);
     </script>
 
-    <script id="newhero-hover-interactions-v1">
+    <style id="newhero-touch-zones">
+      /* Two transparent, full-height touch targets over the artwork. */
+      #newhero-feature .newhero-hover-zone {
+        position:absolute; top:0; bottom:0; z-index:8; display:block;
+        width:50%; height:100%; margin:0; padding:0;
+        border:0; border-radius:0; background:transparent;
+        opacity:0; cursor:pointer; touch-action:manipulation;
+        -webkit-tap-highlight-color:transparent;
+      }
+      #newhero-feature .newhero-hover-zone.tech-zone { left:0; right:auto; }
+      #newhero-feature .newhero-hover-zone.art-zone { left:50%; right:0; }
+    </style>
+    <script id="newhero-hover-interactions-v2">
       (() => {
         const hero = document.getElementById('newhero-feature');
         const stage = hero && hero.querySelector('.newhero-stage');
         if (!stage) return;
         const zones = [...stage.querySelectorAll('.newhero-hover-zone')];
+        let touchMode = '';
         const setMode = (mode) => {
           stage.classList.toggle('is-tech-active', mode === 'tech');
           stage.classList.toggle('is-art-active', mode === 'art');
         };
         zones.forEach((zone) => {
           const mode = zone.classList.contains('tech-zone') ? 'tech' : 'art';
-          zone.addEventListener('pointerenter', () => setMode(mode));
-          zone.addEventListener('pointerleave', () => setMode(''));
+          zone.addEventListener('pointerenter', (event) => {
+            if (event.pointerType === 'mouse') setMode(mode);
+          });
+          zone.addEventListener('pointerleave', (event) => {
+            if (event.pointerType === 'mouse') setMode('');
+          });
           zone.addEventListener('focus', () => setMode(mode));
-          zone.addEventListener('blur', () => setMode(''));
+          zone.addEventListener('blur', () => {
+            if (!touchMode) setMode('');
+          });
           zone.addEventListener('pointerdown', (event) => {
-            if (event.pointerType === 'touch') setMode(mode);
+            if (event.pointerType === 'touch') {
+              touchMode = touchMode === mode ? '' : mode;
+              setMode(touchMode);
+            }
           });
         });
       })();
