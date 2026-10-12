@@ -342,6 +342,40 @@
       #newhero-feature .newhero-stage { background:transparent !important; }
     </style>
 
+  
+    <style id="artist-real-gif-layer">
+      /* The container never rotates. Only the GIF's own frames animate, and the effect is confined to Artist's right half. */
+      #newhero-feature .newhero-stage { isolation:isolate; }
+      #newhero-feature .newhero-art-overlay {
+        z-index:5 !important;
+        position:absolute !important;
+        inset:0 !important;
+        overflow:hidden !important;
+        pointer-events:none !important;
+        clip-path:inset(0 0 0 50%) !important;
+        -webkit-clip-path:inset(0 0 0 50%) !important;
+        background-image:url("images/swirl-optimized.gif") !important;
+        background-repeat:no-repeat !important;
+        background-position:right center !important;
+        background-size:cover !important;
+        opacity:0;
+        transform:none !important;
+        animation:none !important;
+        mix-blend-mode:screen;
+        transition:opacity .25s ease !important;
+      }
+      #newhero-feature .newhero-stage.is-art-active .newhero-art-overlay {
+        opacity:1 !important;
+        transform:none !important;
+        animation:none !important;
+      }
+      #newhero-feature .newhero-foreground { z-index:6 !important; }
+      #newhero-feature .newhero-hover-zone { z-index:8 !important; }
+      @media(prefers-reduced-motion:reduce) {
+        #newhero-feature .newhero-art-overlay { transition:none !important; }
+      }
+    </style>
+
   </head>
   <body class="home-page">
     <header class="nav">
