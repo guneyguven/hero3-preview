@@ -281,37 +281,36 @@
       }
       #newhero-feature .newhero-art-overlay {
         z-index:3;opacity:0;overflow:hidden;
-        /* Artist-only field: hard split at the centre, fully opaque pastel oil-paint colours. */
-        clip-path:inset(0 0 0 50%);
+        /* Hard physical boundary: the swirl element exists only in the Artist half. */
+        left:50%!important;right:0!important;width:50%!important;inset-block:0!important;
+        clip-path:none!important;
         background:
-          repeating-conic-gradient(from 8deg at 79% 49%,
-            #e8b9c8 0deg,#f0c99b 12deg,#d9d5a6 24deg,#a9d8ce 37deg,
-            #a9c5e5 50deg,#c7b2df 63deg,#e6b0c7 76deg,#e8b9c8 90deg),
-          radial-gradient(ellipse at 79% 49%,#f4dfba 0%,#b8cbe0 36%,#b7d6ca 68%,#d6b8d2 100%);
-        background-size:135% 135%,100% 100%;
-        filter:saturate(.82) contrast(1.03);
+          repeating-conic-gradient(from 0deg at 50% 50%,
+            #b51e83 0deg,#6e2db2 14deg,#087fbe 28deg,#20c7d5 42deg,
+            #b7d72d 56deg,#ffdb21 70deg,#ff8d22 84deg,#e72b36 98deg,
+            #b51e83 112deg,#6e2db2 126deg,#087fbe 140deg,#20c7d5 154deg,
+            #b7d72d 168deg,#ffdb21 182deg,#ff8d22 196deg,#e72b36 210deg,
+            #b51e83 224deg,#6e2db2 238deg,#087fbe 252deg,#20c7d5 266deg,
+            #b7d72d 280deg,#ffdb21 294deg,#ff8d22 308deg,#e72b36 322deg,#b51e83 336deg);
+        filter:saturate(1.18) contrast(1.06);
         transition:opacity .28s ease;
       }
       #newhero-feature .newhero-art-overlay:before {
-        content:"";position:absolute;inset:-18%;
-        background:
-          repeating-conic-gradient(from 12deg at 79% 49%,
-            #f5d7c7 0deg,#c9b2d9 8deg,#a8d2d0 17deg,#f1d4a3 26deg,
-            #d9b5c6 35deg,#f5d7c7 48deg);
-        background-size:100% 100%;
-        filter:contrast(1.08);
+        content:"";position:absolute;inset:-38%;
+        background:repeating-conic-gradient(from 18deg at 50% 50%,
+          #4d147e 0deg,#d51c82 13deg,#f54c8a 23deg,#ffcf28 34deg,
+          #a5d62a 45deg,#18c9d5 56deg,#1679c5 67deg,#4d147e 78deg);
+        filter:saturate(1.15) contrast(1.12);
         animation:swirl-spin-v4 9s linear infinite;
-        mix-blend-mode:normal;
-        clip-path:inset(0 0 0 50%);
+        transform-origin:center;
       }
       #newhero-feature .newhero-art-overlay:after {
-        content:"";position:absolute;inset:0;
-        background:repeating-radial-gradient(ellipse at 79% 49%,
-          #e6c1ce 0 7px,#d4c7a8 8px 14px,#a9cfc8 15px 21px,#b8c9e4 22px 28px);
-        opacity:1;
-        clip-path:inset(0 0 0 50%);
-        mix-blend-mode:normal;
+        content:"";position:absolute;inset:-15%;
+        background:repeating-radial-gradient(ellipse at 50% 50%,
+          #ffcf28 0 5px,#ff7d23 6px 11px,#df277d 12px 17px,#672da8 18px 23px,
+          #087eb9 24px 29px,#20c7d5 30px 35px,#a8d82d 36px 41px);
         animation:swirl-spin-v4 13s linear infinite reverse;
+        mix-blend-mode:normal;
       }
       #newhero-feature .newhero-paint-energy { z-index:4;opacity:0; }
       /* The original portrait cutout sits above both animated background effects. */
