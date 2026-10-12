@@ -608,5 +608,33 @@
 
     <script src="https://guneyguven.github.io/js/apple.js?v=20261010global-placeholder-fix" defer>
     </script>
+      <style id="newhero-artist-gif-correction">
+      /* The hover target stays on the Artist half; the GIF itself is confined to the marked upper-head area. */
+      #newhero-feature .newhero-stage { isolation:isolate !important; overflow:hidden !important; }
+      #newhero-feature .newhero-art-overlay {
+        position:absolute !important;
+        left:50% !important; top:0 !important; right:auto !important; bottom:auto !important;
+        width:13% !important; height:21% !important;
+        inset-block:auto !important; overflow:hidden !important;
+        z-index:5 !important; opacity:0 !important;
+        background-image:url("https://raw.githubusercontent.com/guneyguven/guneyguven.github.io/main/images/IMG_4717.gif") !important;
+        background-color:transparent !important; background-repeat:no-repeat !important;
+        background-position:center center !important; background-size:cover !important;
+        filter:none !important; mix-blend-mode:screen !important;
+        clip-path:inset(0) !important; -webkit-clip-path:inset(0) !important;
+        transform:none !important; animation:none !important;
+        transition:opacity .25s ease !important;
+      }
+      #newhero-feature .newhero-art-overlay::before,
+      #newhero-feature .newhero-art-overlay::after { content:none !important; display:none !important; animation:none !important; }
+      #newhero-feature .newhero-stage.is-art-active .newhero-art-overlay {
+        opacity:1 !important; transform:none !important; animation:none !important;
+      }
+      #newhero-feature .newhero-foreground { z-index:6 !important; pointer-events:none !important; }
+      #newhero-feature .newhero-hover-zone { z-index:8 !important; }
+      @media (max-width:760px) {
+        #newhero-feature .newhero-art-overlay { left:50% !important; top:0 !important; width:13% !important; height:21% !important; background-size:cover !important; }
+      }
+    </style>
   </body>
 </html>
