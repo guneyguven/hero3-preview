@@ -337,6 +337,57 @@
       }
     </style>
 
+    <style id="artist-hover-swirl-test">
+      /* Artist-only swirl hover: animate the color field, never rotate the whole rectangular overlay. */
+      #newhero-feature .newhero-art-overlay {
+        left:50%!important;right:0!important;width:50%!important;inset-block:0!important;
+        opacity:0;overflow:hidden;clip-path:none!important;
+        background:
+          conic-gradient(from 0deg at 48% 52%,
+            #ff2424,#ffb21c,#fff229,#46e52e,#11dbe5,#2365ff,#8a27e8,#f52da8,#ff2424);
+        transition:opacity .3s ease;
+        transform:none!important;
+        animation:none!important;
+      }
+      #newhero-feature .newhero-art-overlay:before {
+        content:"";position:absolute;inset:-22%;
+        background:
+          repeating-conic-gradient(from 10deg at 46% 54%,
+            #ffdf21 0deg 7deg,#f32a72 8deg 14deg,#7e26dc 15deg 21deg,
+            #1b9eff 22deg 28deg,#18e4bd 29deg 35deg,#d9f32a 36deg 42deg);
+        filter:saturate(1.25) contrast(1.12);
+        transform-origin:48% 52%;
+        animation:artist-swirl-flow 7s linear infinite;
+      }
+      #newhero-feature .newhero-art-overlay:after {
+        content:"";position:absolute;inset:-16%;
+        background:repeating-radial-gradient(ellipse at 45% 54%,
+          #ffed23 0 5px,#ff6c21 6px 10px,#f02391 11px 15px,
+          #7425d8 16px 20px,#087fdd 21px 25px,#1be3d0 26px 30px,
+          #a5e72b 31px 35px);
+        mix-blend-mode:normal;
+        transform-origin:45% 54%;
+        animation:artist-swirl-flow-reverse 10s linear infinite;
+      }
+      #newhero-feature .newhero-stage.is-art-active .newhero-art-overlay { opacity:1; }
+      #newhero-feature .newhero-stage.is-art-active .newhero-art-overlay:before { animation-duration:7s; }
+      #newhero-feature .newhero-stage.is-art-active .newhero-art-overlay:after { animation-duration:10s; }
+      @keyframes artist-swirl-flow {
+        0% { transform:rotate(0deg) scale(1.08) skew(-3deg,2deg); }
+        50% { transform:rotate(180deg) scale(1.13) skew(3deg,-2deg); }
+        100% { transform:rotate(360deg) scale(1.08) skew(-3deg,2deg); }
+      }
+      @keyframes artist-swirl-flow-reverse {
+        0% { transform:rotate(360deg) scale(1.06) skew(2deg,-2deg); }
+        50% { transform:rotate(180deg) scale(1.12) skew(-2deg,2deg); }
+        100% { transform:rotate(0deg) scale(1.06) skew(2deg,-2deg); }
+      }
+      @media(prefers-reduced-motion:reduce) {
+        #newhero-feature .newhero-art-overlay:before,
+        #newhero-feature .newhero-art-overlay:after { animation:none!important; }
+      }
+    </style>
+
     <style id="newhero-preview-background-fix">
       /* Preserve the original portrait at rest; show circuit energy only during Engineer hover. */
       #newhero-feature .newhero-stage { background:transparent !important; }
