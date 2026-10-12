@@ -636,5 +636,20 @@
         #newhero-feature .newhero-art-overlay { left:50% !important; top:0 !important; width:13% !important; height:21% !important; background-size:cover !important; }
       }
     </style>
+    <style id="remove-hero-hover-effects">
+      /* Keep the hero artwork static: no hover zones or hover-triggered overlays. */
+      #newhero-feature .newhero-hover-zone,
+      #newhero-feature .newhero-tech-overlay,
+      #newhero-feature .newhero-art-overlay,
+      #newhero-feature .newhero-paint-energy,
+      #newhero-feature .newhero-eye-laser {
+        display:none !important;
+        visibility:hidden !important;
+        opacity:0 !important;
+        animation:none !important;
+        transition:none !important;
+        pointer-events:none !important;
+      }
+    </style>
   </body>
 </html>
