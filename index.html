@@ -280,20 +280,38 @@
         opacity:.66;animation:circuit-pulse-v4 1.9s ease-in-out infinite alternate;
       }
       #newhero-feature .newhero-art-overlay {
-        z-index:3;opacity:0;overflow:hidden;mix-blend-mode:screen;
+        z-index:3;opacity:0;overflow:hidden;
+        /* Artist-only field: hard split at the centre, fully opaque pastel oil-paint colours. */
+        clip-path:inset(0 0 0 50%);
         background:
-          repeating-conic-gradient(from 0deg at 79% 49%,rgba(255,42,130,.0) 0deg,rgba(255,42,130,.82) 13deg,rgba(255,188,43,.78) 27deg,rgba(0,230,255,.84) 43deg,rgba(126,46,255,.8) 58deg,rgba(255,42,130,.0) 75deg),
-          radial-gradient(ellipse at 79% 49%,rgba(255,255,255,.34),rgba(24,9,48,.05) 22%,transparent 55%);
+          repeating-conic-gradient(from 8deg at 79% 49%,
+            #e8b9c8 0deg,#f0c99b 12deg,#d9d5a6 24deg,#a9d8ce 37deg,
+            #a9c5e5 50deg,#c7b2df 63deg,#e6b0c7 76deg,#e8b9c8 90deg),
+          radial-gradient(ellipse at 79% 49%,#f4dfba 0%,#b8cbe0 36%,#b7d6ca 68%,#d6b8d2 100%);
         background-size:135% 135%,100% 100%;
-        filter:saturate(1.7) contrast(1.08);
-        -webkit-mask-image:radial-gradient(ellipse 45% 67% at 79% 50%,transparent 0%,transparent 30%,rgba(0,0,0,.2) 40%,#000 56%,transparent 79%);
-        mask-image:radial-gradient(ellipse 45% 67% at 79% 50%,transparent 0%,transparent 30%,rgba(0,0,0,.2) 40%,#000 56%,transparent 79%);
+        filter:saturate(.82) contrast(1.03);
         transition:opacity .28s ease;
       }
       #newhero-feature .newhero-art-overlay:before {
         content:"";position:absolute;inset:-18%;
-        background:repeating-conic-gradient(from 12deg at 79% 49%,rgba(255,255,255,0) 0deg,rgba(255,255,255,.18) 5deg,rgba(255,255,255,0) 12deg,rgba(0,0,0,0) 24deg);
-        filter:blur(2px);animation:swirl-spin-v4 9s linear infinite;
+        background:
+          repeating-conic-gradient(from 12deg at 79% 49%,
+            #f5d7c7 0deg,#c9b2d9 8deg,#a8d2d0 17deg,#f1d4a3 26deg,
+            #d9b5c6 35deg,#f5d7c7 48deg);
+        background-size:100% 100%;
+        filter:contrast(1.08);
+        animation:swirl-spin-v4 9s linear infinite;
+        mix-blend-mode:normal;
+        clip-path:inset(0 0 0 50%);
+      }
+      #newhero-feature .newhero-art-overlay:after {
+        content:"";position:absolute;inset:0;
+        background:repeating-radial-gradient(ellipse at 79% 49%,
+          #e6c1ce 0 7px,#d4c7a8 8px 14px,#a9cfc8 15px 21px,#b8c9e4 22px 28px);
+        opacity:1;
+        clip-path:inset(0 0 0 50%);
+        mix-blend-mode:normal;
+        animation:swirl-spin-v4 13s linear infinite reverse;
       }
       #newhero-feature .newhero-paint-energy { z-index:4;opacity:0; }
       /* The original portrait cutout sits above both animated background effects. */
@@ -304,7 +322,7 @@
       }
       #newhero-feature .newhero-eye-laser { display:none !important; }
       #newhero-feature .newhero-stage.is-tech-active .newhero-tech-overlay { opacity:1; }
-      #newhero-feature .newhero-stage.is-art-active .newhero-art-overlay { opacity:.86;animation:swirl-spin-v4 8s linear infinite; }
+      #newhero-feature .newhero-stage.is-art-active .newhero-art-overlay { opacity:1;animation:swirl-spin-v4 8s linear infinite; }
       @keyframes circuit-current-v4 { from{transform:translate3d(-2%,0,0)} to{transform:translate3d(2%,0,0)} }
       @keyframes circuit-pulse-v4 { from{opacity:.28;filter:brightness(.8)} to{opacity:.82;filter:brightness(1.45)} }
       @keyframes swirl-spin-v4 { from{transform:rotate(0deg) scale(1.02)} to{transform:rotate(360deg) scale(1.02)} }
